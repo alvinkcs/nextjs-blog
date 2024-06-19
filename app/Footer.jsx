@@ -17,7 +17,7 @@ function Footer() {
 
   return (
     <footer style={{maxWidth:"fit-content", marginLeft:"auto", marginRight:"auto"}}>
-      <p>
+      <p suppressHydrationWarning >
         Alvin Kong ⓒ {date}/{month + 1}/{year} {time}
       </p>
     </footer>

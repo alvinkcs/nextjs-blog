@@ -28,18 +28,19 @@ function CreateArea(props) {
   };
 
   return <div>
-  <form>
-    <input
+    <form>
+  <input
+    className="input"
       name="url"
       onChange={handleChange}
       value={url.url}
       placeholder="Input a URL"
-      style={{backgroundColor:"black"}}
     />
-    <button style={{backgroundColor:"blue", maxWidth:"fit-content", marginLeft:"50px"}} onClick={submitUrl}>Submit</button>
+    <button className="button-27" style={{maxWidth:"100px", marginLeft:"30px"}} onClick={submitUrl}>Submit</button>
   </form>
 </div>
 
 }
 
 export default CreateArea;
+
