@@ -22,6 +22,15 @@ function ToDoList_c(props){
 
     const handleClick = (event) => {
         props.handler(newItem.eventName)
+        let lastobj = items[items.length-1]
+        let newIndex = +lastobj._id+1
+        let newobj = {_id:newIndex, event:newItem.eventName}
+        setItems(prevItem => {
+            return [
+                ...prevItem,
+                newobj
+            ]
+        })
         event.preventDefault();
     }
 
@@ -36,24 +45,20 @@ function ToDoList_c(props){
         <div>
         <form onSubmit={handleClick}>
             <input
+                className='input'
                 name="eventName"
                 onChange={handleChange}
                 placeholder="Add a thing to do"
                 value={newItem.eventName}
-                style={{backgroundColor:"black"}}
+                style={{backgroundColor:"black", marginLeft:"20px", textAlign:"center"}}
                 >
             </input>
-            <button>Add</button>
+            <button className='button-27' style={{marginLeft:"30px",width:"120px",textAlign:"center"}}>Add</button>
         </form>
         {items.map(item => {
-                return <form>
-                    <input
-                    key={item._id}
-                    style={{textAlign:"center", backgroundColor:"black"}}
-                    placeholder={item.event}
-                    >
-                    </input>
-                    <button name="button" value={item._id} onClick={handleDelete}>Checked</button>
+                return <form style={{display:"flex"}}>
+                    <h1 className="input" key={item._id} style={{textAlign:"center", marginLeft:"320px", width:"fit-contetn",display:"inline-block"}}>{item.event}</h1>
+                    <button className="button-27" style={{marginLeft:"30px",width:"120px",textAlign:"center"}} name="button" value={item._id} onClick={handleDelete}>Checked</button>
                 </form>
             })}
         </div>
